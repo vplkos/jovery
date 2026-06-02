@@ -1,0 +1,14 @@
+# NAME: Homebrew_Full
+# UPDATED: 2026-06-03
+
+# Homebrew 核心与镜像
+DOMAIN-SUFFIX,brew.sh
+DOMAIN,formulae.brew.sh
+DOMAIN,ghcr.io
+DOMAIN-SUFFIX,ghcr.io
+DOMAIN-SUFFIX,homebrew.bintray.com
+
+# GitHub 资源库 (处理脚本与预编译包)
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,githubusercontent.com
+# 包含子域名已涵盖 raw.githubusercontent.com 和 pkg-containers.githubusercontent.com 等
