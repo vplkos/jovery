@@ -18,6 +18,7 @@
 | 功能 | 资源链接 |
 | :--- | :--- |
 | **众安银行 (ZA Bank)** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list) |
+| **Homebrew** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/refs/heads/main/rules/homebrew.list) |
 
 ### 🛠 脚本 (Scripts)
 | 功能 | 资源链接 |
