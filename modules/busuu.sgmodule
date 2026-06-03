@@ -1,7 +1,8 @@
 #!name=Busuu解锁VIP
 #!desc=博树 VIP 解锁模块
 #!system=ios
+#！Busuu = type=http-response,pattern=^https?:\/\/.*\/users\/me,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js,binary-body-mode=0,script-update-interval=0
 [Script]
-Busuu = type=http-response,pattern=^https?:\/\/.*\/users\/me,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js,binary-body-mode=0,script-update-interval=0
+Busuu = type=http-response,pattern=^https:\/\/api\.busuu\.com\/users\/me,requires-body=1,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js
 [MITM]
-hostname = *.boshu.*, *.bosuu.com, *.busuu.com
+hostname = api.busuu.com, events.busuu.com
