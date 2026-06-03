@@ -5,7 +5,7 @@
 *******************************
 
 [rewrite_local]
-^https:\/\/api\.busuu\.com\/users\/me url script-response-body https://raw.githubusercontent.com/vplkos/jovery/main/busuu/busuu.js
+^https:\/\/api\.busuu\.com\/users\/me url script-response-body https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js
 [mitm] 
 hostname = api.busuu.com
 *******************************/
