@@ -3,9 +3,7 @@
 #!system=ios
 
 [Script]
-# 使用你的 Raw URL，并确保路径名称与你的 GitHub 文件名一致
 Busuu_Unlock = type=http-response,pattern=^https:\/\/api\.busuu\.com\/users\/me,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuuunlock.js
 
 [MITM]
-# 仅拦截 API 域名，避免不必要的流量解密
 hostname = api.busuu.com
