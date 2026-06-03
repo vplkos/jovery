@@ -12,7 +12,7 @@
 ### 📱 模块 (Modules)
 | 功能 | 资源链接 |
 | :--- | :--- |
-| **Busuu VIP 解锁** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/modules/busuu.sgmodule) |
+| **Busuu** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/modules/busuu.sgmodule) |
 
 ### 🌐 规则 (Rules)
 | 功能 | 资源链接 |
