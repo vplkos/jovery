@@ -23,7 +23,7 @@
 ### 🛠 脚本 (Scripts)
 | 功能 | 资源链接 |
 | :--- | :--- |
-| **Busuu VIP 解锁脚本** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js) |
+| **Busuu脚本** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js) |
 
 ---
 
