@@ -1,0 +1,7 @@
+# Name: 中国电信营业厅等流氓 SDK 降温规则
+# Description: 极光推送等高频刷屏域名。注意：在 Surge 引入此规则集时，策略(Policy)必须手动选择 REJECT-DROP！
+# Update: 2026-06-09
+
+DOMAIN-SUFFIX,jpush.cn
+DOMAIN-SUFFIX,jpush.io
+DOMAIN-SUFFIX,easytomessage.com
