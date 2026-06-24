@@ -51,7 +51,7 @@
 >       - no-new-privileges:true
 >
 >     environment:
->       - API_KEY=你的超级安全暗号密钥
+>       - API_KEY=your-random-api-key
 >       - PORT=40728
 >
 >     volumes:
@@ -63,6 +63,19 @@
 > ```bash
 > docker compose up -d
 > ```
+
+**生成随机 API Key（推荐）：**
+> ```bash
+> openssl rand -hex 32
+> ```
+
+示例输出：
+
+> ```text
+> 0aa46df18f2cc9574cad054a931209af0e5b0c7e33f4d3d0d7c8a9f3e6b1c2d4
+> ```
+
+将生成的随机字符串填入 Docker Compose 配置中的 `API_KEY`，并在 Surge 模块参数中填写相同的值即可完成认证。
 
 💡 *注：启动后请记得在云服务器控制台（安全组/防火墙）中放行对应的 TCP 端口。*
 
