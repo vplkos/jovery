@@ -1,5 +1,5 @@
 /*
- * Surge 模块专用通用监控脚本 (vps_panel.js)
+ * Surge 模块通用监控脚本 (vps_panel.js)
  */
 
 function formatBytes(bytes) {
@@ -17,33 +17,24 @@ function formatUptime(seconds) {
     return `${d}天${h}时${m}分`;
 }
 
-// 核心改动：优先读取模块自带的图形化配置参数 $arguments
-let args = {};
-if (typeof $arguments !== 'undefined') {
-    args = $arguments;
-} else if (typeof $argument !== 'undefined') {
-    // 兼容老版本的文本参数形式
+// 严格遵循常规脚本解析逻辑，读取外部拼接好的 $argument
+const args = {};
+if (typeof $argument !== 'undefined') {
     $argument.split('&').forEach(item => {
         const pair = item.split('=');
-        args[pair[0]] = pair[1];
+        if (pair[0]) args[pair[0]] = pair[1];
     });
 }
 
-// 设置默认兜底值
-const targetUrl = args.url || "http://127.0.0.1:40728";
-const targetKey = args.key || "your_super_secret_key";
-const panelName = args.name || "Server Info";
-const panelIcon = args.icon || "party.popper";
-
 const requestOpts = {
-    url: targetUrl,
-    headers: { 'X-Api-Key': targetKey }
+    url: args.url,
+    headers: { 'X-Api-Key': args.key }
 };
 
 $httpClient.get(requestOpts, function(error, response, data) {
     if (error || response.status !== 200) {
         $done({
-            title: panelName,
+            title: args.name || "服务器监控",
             content: "❌ 连接失败: 请检查网络、端口或密钥",
             icon: "exclamationmark.triangle",
             "icon-color": "#FF3B30"
@@ -59,9 +50,9 @@ $httpClient.get(requestOpts, function(error, response, data) {
             `在线: ${formatUptime(stats.uptime)}`;
 
         $done({
-            title: panelName,
+            title: args.name || "服务器监控",
             content: content,
-            icon: panelIcon,
+            icon: args.icon || "server.rack",
             "icon-color": "#34C759"
         });
     } catch (e) {
