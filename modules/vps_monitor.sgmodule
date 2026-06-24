@@ -1,4 +1,4 @@
-#!name=VPS 极客监控面板
+#!name=VPS监控面板
 #!desc=由 Go 后端驱动的高性能轻量级 VPS 状态监控面板。支持自定义服务器地址、鉴权密钥及面板样式。
 #!category=工具
 #!arguments=url:"http://127.0.0.1:40728",key:"your_super_secret_key",name:"Server Info",icon:"party.popper",interval:15
