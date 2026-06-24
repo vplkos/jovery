@@ -85,6 +85,34 @@
 
 ---
 
+### 📊 指标说明
+
+本项目直接读取 Linux 宿主机内核数据进行统计，不依赖 Docker API、SNMP 或第三方 Agent。
+
+当前监控项包括：
+
+- CPU 使用率（/proc/stat）
+- 内存使用率（/proc/meminfo）
+- 网络总流量（/proc/net/dev）
+- 系统运行时间（/proc/uptime）
+
+所有数据均来自宿主机内核接口，能够准确反映服务器实时状态。
+
+<details>
+<summary>🔬 实现原理</summary>
+
+- CPU：基于 `/proc/stat` 差分采样计算
+- 内存：基于 `MemAvailable` 计算真实内存占用率
+- 流量：基于 `/proc/net/dev` 汇总所有网络接口
+- 运行时间：基于 `/proc/uptime`
+
+项目采用 Go 原生实现，无需数据库、无需 Agent、无需 Docker Socket 权限。
+
+</details>
+
+---
+
+
 ## 说明
 - 此仓库内容仅供学习与交流使用。
 - 若规则失效，请检查对应的链接是否已更新。
