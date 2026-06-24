@@ -2,7 +2,7 @@
 
 本仓库用于存放个人使用的 Surge/Quantumult X 模块、规则及脚本。
 
-## 📸 VPS 极客监控面板效果预览
+## 📸 VPS 监控面板效果预览
 
 <p align="center">
   <img src="./screenshots/vps-monitor.png" width="350">
