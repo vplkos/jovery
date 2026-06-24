@@ -52,7 +52,7 @@
 >
 >     environment:
 >       - API_KEY=your-random-api-key
->       - PORT=40728
+>       - PORT=40728 # 可自定义监听端口
 >
 >     volumes:
 >       - /proc:/host/proc:ro
@@ -76,6 +76,8 @@
 > ```
 
 将生成的随机字符串填入 Docker Compose 配置中的 `API_KEY`，并在 Surge 模块参数中填写相同的值即可完成认证。
+
+`PORT` 可根据实际需求修改，但需确保 Surge 模块中的后端地址与服务器开放的端口保持一致。
 
 💡 *注：启动后请记得在云服务器控制台（安全组/防火墙）中放行对应的 TCP 端口。*
 
