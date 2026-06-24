@@ -1,4 +1,4 @@
-# jovery - 个人代理规则库
+# Marius - 个人代理规则库
 
 本仓库用于存放个人使用的 Surge / Quantumult X 模块、规则及脚本。
 
