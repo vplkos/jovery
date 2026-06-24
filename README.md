@@ -2,6 +2,12 @@
 
 本仓库用于存放个人使用的 Surge/Quantumult X 模块、规则及脚本。
 
+## 📸 VPS 极客监控面板效果预览
+
+<p align="center">
+  <img src="./screenshots/vps-monitor.png" width="350">
+</p>
+
 ## 目录结构
 - `modules/` : 存放 .sgmodule 模块文件
 - `rules/` : 存放 .list 分流规则
