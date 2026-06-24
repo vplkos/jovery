@@ -70,7 +70,7 @@
 2. 点击 **“安装新模块”**，粘贴以下本仓库的模块原始链接：
    `https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodule`
 3. 安装完成后，在模块列表中**单击该模块**，Surge 将自动弹出交互式配置菜单：
-   * 📥 **后端地址**：填写你的服务器公网 IP 与端口（例如 `http://3.112.233.133:40728`）。
+   * 📥 **后端地址**：填写你的服务器公网 IP 与端口（例如 `http://127.0.0.1:40728`）。
    * 🔑 **鉴权密钥**：填写你在 Docker 中配置的 `API_KEY`。
    * 🏷️ **面板标题**：自定义你显示在 Surge 首页的服务器名称。
    * 🎨 **面板图标**：可自由更换 SF Symbols 图标（如 `party.popper` 或 `server.rack`）。
