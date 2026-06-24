@@ -125,7 +125,7 @@ https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodul
 
 - CPU 使用率
 - 内存使用率
-- 网络总流量
+- 网络总流量（系统启动以来累计流量）
 - 系统运行时间
 
 所有数据均直接读取 Linux 宿主机内核接口，不依赖 Docker API、SNMP 或第三方监控 Agent。
