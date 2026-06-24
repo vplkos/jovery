@@ -1,6 +1,6 @@
 # jovery - 个人代理规则库
 
-本仓库用于存放个人使用的 Surge/Quantumult X 模块、规则及脚本。
+本仓库用于存放个人使用的 Surge / Quantumult X 模块、规则及脚本。
 
 ## 📸 VPS 监控面板效果预览
 
@@ -8,132 +8,177 @@
   <img src="./screenshots/vps-monitor.png" width="350">
 </p>
 
-## 目录结构
-- `modules/` : 存放 .sgmodule 模块文件
-- `rules/` : 存放 .list 分流规则
-- `scripts/` : 存放 JavaScript 脚本
-
-## 资源索引
-
-### 📱 模块 (Modules)
-| 功能 | 资源链接 |
-| :--- | :--- |
-| **Busuu** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/modules/busuu.sgmodule) |
-| **VPS 极客监控面板** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodule) |
-
-### 🌐 规则 (Rules)
-| 功能 | 资源链接 |
-| :--- | :--- |
-| **众安银行 (ZA Bank)** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list) |
-| **Homebrew** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/refs/heads/main/rules/homebrew.list) |
-
-### 🛠 脚本 (Scripts)
-| 功能 | 资源链接 |
-| :--- | :--- |
-| **Busuu脚本** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js) |
-| **VPS面板解析脚本** | [点击获取](https://raw.githubusercontent.com/vplkos/jovery/main/scripts/vps_panel.js) |
+<p align="center">
+  基于 Docker + Surge Panel 的轻量级 VPS 监控方案
+</p>
 
 ---
 
-## ⚡ 进阶项目：VPS 极客监控面板部署指南
+# 🚀 VPS 极客监控面板
 
-本仓库内置了一套基于 **Go 后端 + Docker + Surge Panel** 的轻量级原生服务器指标监控方案。无虚拟化网络开销，支持多用户图形化参数配置。
+本仓库内置了一套基于 **Go 后端 + Docker + Surge Panel** 的轻量级原生服务器指标监控方案。
 
-### 1. 服务端部署 (VPS)
+### ✨ 项目特点
 
-在你的 Linux 服务器上新建一个目录（推荐 `/opt/1panel/apps/secure-monitor`），创建 `docker-compose.yml` 文件并写入以下配置：
+- 无需数据库
+- 无需 Docker Socket 权限
+- 无需额外 Agent
+- 基于 Linux 原生 `/proc` 数据源
+- Docker 一键部署
+- 支持 Surge 图形化参数配置
+- 支持多服务器部署
+- 资源占用极低
 
-> ```yaml
-> services:
->   secure-monitor:
->     image: hk2fs/secure-monitor:v2.0
->     container_name: secure-monitor
->     restart: always
->
->     network_mode: host
->     read_only: true
->
->     security_opt:
->       - no-new-privileges:true
->
->     environment:
->       - API_KEY=your-random-api-key
->       - PORT=40728 # 可自定义监听端口
->
->     volumes:
->       - /proc:/host/proc:ro
->       - /sys:/host/sys:ro
-> ```
+---
 
-**启动服务：**
-> ```bash
-> docker compose up -d
-> ```
+## 1. 服务端部署（VPS）
 
-**生成随机 API Key（推荐）：**
-> ```bash
-> openssl rand -hex 32
-> ```
+在 Linux 服务器上新建目录（推荐 `/opt/1panel/apps/secure-monitor`），创建 `docker-compose.yml` 文件并写入以下配置：
+
+```yaml
+services:
+  secure-monitor:
+    image: hk2fs/secure-monitor:v2.0
+    container_name: secure-monitor
+    restart: always
+
+    network_mode: host
+    read_only: true
+
+    security_opt:
+      - no-new-privileges:true
+
+    environment:
+      - API_KEY=your-random-api-key
+      - PORT=40728 # 可自定义监听端口
+
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+```
+
+### 启动服务
+
+```bash
+docker compose up -d
+```
+
+### 生成随机 API Key（推荐）
+
+```bash
+openssl rand -hex 32
+```
 
 示例输出：
 
-> ```text
-> 0aa46df18f2cc9574cad054a931209af0e5b0c7e33f4d3d0d7c8a9f3e6b1c2d4
-> ```
+```text
+0aa46df18f2cc9574cad054a931209af0e5b0c7e33f4d3d0d7c8a9f3e6b1c2d4
+```
 
 将生成的随机字符串填入 Docker Compose 配置中的 `API_KEY`，并在 Surge 模块参数中填写相同的值即可完成认证。
 
-`PORT` 可根据实际需求修改，但需确保 Surge 模块中的后端地址与服务器开放的端口保持一致。
+`PORT` 可根据实际需求修改，但需确保：
 
-💡 *注：启动后请记得在云服务器控制台（安全组/防火墙）中放行对应的 TCP 端口。*
+- Surge 模块中的后端地址同步修改
+- 服务器安全组放行对应端口
+- 本机防火墙允许对应端口访问
 
-### 2. 客户端配置 (Surge)
-
-本仓库的 `vps_monitor.sgmodule` 已完美适配 Surge 正式版的参数设置功能（像素级向 Sub-Store 规范看齐），支持纯图形化修改，拒绝隐私泄露。
-
-#### 简易安装步骤：
-1. 打开 Surge，进入 **“模块 (Modules)”** 页面。
-2. 点击 **“安装新模块”**，粘贴以下本仓库的模块原始链接：
-   `https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodule`
-3. 安装完成后，在模块列表中**单击该模块后的三个点、选择编辑参数** ，Surge 将自动弹出交互式配置菜单：
-   * 📥 **后端地址**：填写你的服务器公网 IP 与端口（例如 `http://127.0.0.1:40728`）。
-   * 🔑 **鉴权密钥**：填写你在 Docker 中配置的 `API_KEY`。
-   * 🏷️ **面板标题**：自定义你显示在 Surge 首页的服务器名称。
-   * 🎨 **面板图标**：可自由更换 SF Symbols 图标（如 `party.popper` 或 `server.rack`）。
-   * ⏱️ **刷新间隔**：建议保持默认的 `15` 秒或 `30` 秒，兼顾实时性与省电。
-
-保存并重载配置后，Surge 首页即可完美呈现高性能的原生 VPS 指标卡片。
+💡 启动后请记得在云服务器控制台（安全组 / 防火墙）中放行对应 TCP 端口。
 
 ---
 
-### 📊 指标说明
+## 2. 客户端配置（Surge）
 
-本项目直接读取 Linux 宿主机内核数据进行统计，不依赖 Docker API、SNMP 或第三方 Agent。
+本仓库的 `vps_monitor.sgmodule` 已适配 Surge 参数配置功能，支持图形化修改。
 
-当前监控项包括：
+### 安装步骤
 
-- CPU 使用率（/proc/stat）
-- 内存使用率（/proc/meminfo）
-- 网络总流量（/proc/net/dev）
-- 系统运行时间（/proc/uptime）
+1. 打开 Surge
+2. 进入 **模块（Modules）**
+3. 点击 **安装新模块**
+4. 导入以下链接：
 
-所有数据均来自宿主机内核接口，能够准确反映服务器实时状态。
+```text
+https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodule
+```
+
+5. 安装完成后，点击模块右侧 **···**
+6. 选择 **编辑参数**
+
+填写以下内容：
+
+| 参数 | 说明 |
+|--------|--------|
+| 后端地址 | 服务器 IP 与端口 |
+| 鉴权密钥 | Docker 配置中的 API_KEY |
+| 面板标题 | 自定义服务器名称 |
+| 面板图标 | SF Symbols 图标名称 |
+| 刷新间隔 | 建议 15～30 秒 |
+
+配置保存并重载后，即可在 Surge 首页查看服务器实时状态。
+
+---
+
+## 📊 监控指标
+
+当前支持以下监控项目：
+
+- CPU 使用率
+- 内存使用率
+- 网络总流量
+- 系统运行时间
+
+所有数据均直接读取 Linux 宿主机内核接口，不依赖 Docker API、SNMP 或第三方监控 Agent。
 
 <details>
 <summary>🔬 实现原理</summary>
 
+### 数据来源
+
+- CPU：`/proc/stat`
+- 内存：`/proc/meminfo`
+- 网络流量：`/proc/net/dev`
+- 运行时间：`/proc/uptime`
+
+### 计算方式
+
 - CPU：基于 `/proc/stat` 差分采样计算
 - 内存：基于 `MemAvailable` 计算真实内存占用率
-- 流量：基于 `/proc/net/dev` 汇总所有网络接口
-- 运行时间：基于 `/proc/uptime`
+- 网络流量：汇总所有非回环网卡流量
+- 运行时间：读取系统启动时间
 
-项目采用 Go 原生实现，无需数据库、无需 Agent、无需 Docker Socket 权限。
+项目采用 Go 原生实现，无需数据库、无需 Docker Socket、无需额外 Agent。
 
 </details>
 
 ---
 
+## 📦 资源索引
+
+### 📱 模块（Modules）
+
+| 功能 | 资源链接 |
+| :--- | :--- |
+| Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/modules/busuu.sgmodule |
+| VPS 极客监控面板 | https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodule |
+
+### 🌐 规则（Rules）
+
+| 功能 | 资源链接 |
+| :--- | :--- |
+| 众安银行（ZA Bank） | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list |
+| Homebrew | https://raw.githubusercontent.com/vplkos/jovery/main/rules/homebrew.list |
+
+### 🛠 脚本（Scripts）
+
+| 功能 | 资源链接 |
+| :--- | :--- |
+| Busuu脚本 | https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js |
+| VPS面板解析脚本 | https://raw.githubusercontent.com/vplkos/jovery/main/scripts/vps_panel.js |
+
+---
 
 ## 说明
-- 此仓库内容仅供学习与交流使用。
-- 若规则失效，请检查对应的链接是否已更新。
+
+- 本仓库内容仅供学习与交流使用。
+- 若规则、脚本或模块失效，请检查仓库是否已有更新。
