@@ -1,0 +1,17 @@
+#!name=VPS 极客监控面板
+#!desc=由 Go 后端驱动的高性能轻量级 VPS 状态监控面板。支持自定义服务器地址、鉴权密钥及面板样式。
+#!category=工具
+
+[Script]
+# 使用 type=generic 挂载通用脚本，并通过参数映射支持图形化配置
+VPS_Monitor_Script = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/vps_panel.js,argument=url={{{url}}}&key={{{key}}}&name={{{name}}}&icon={{{icon}}}
+
+[Panel]
+VPS_Monitor_Script = script-name=VPS_Monitor_Script,update-interval={{{interval}}}
+
+[Argument]
+url = input, "", "http://你的VPS_IP:端口", "后端地址，例如 http://113.112.233.133:20728"
+key = input, "", "你的超级暗号密钥", "在 Docker 中配置的 API_KEY"
+name = input, "VPS 状态", "面板标题", "显示在面板左上角的服务器名称"
+icon = input, "server.rack", "SF Symbols 图标", "面板图标，例如 party.popper 或 cloud"
+interval = input, "15", "刷新间隔 (秒)", "建议设置为 15 或 30，避免频繁请求"
