@@ -1,11 +1,10 @@
 #!name=VPS 极客监控面板
 #!desc=由 Go 后端驱动的高性能轻量级 VPS 状态监控面板。支持自定义服务器地址、鉴权密钥及面板样式。
 #!category=工具
-#!argument=url=http://3.112.233.133:40728,key=0aa46df18f2cc9574cad054a931209af,name=Server Info,icon=party.popper,interval=15
+#!argument=url=http://127.0.0.1:40728,key=your_super_secret_key,name=Server Info,icon=party.popper,interval=15
 
 [Script]
-# 使用 {{"url"}} 等双大括号语法自动接收模块参数
-VPS_Monitor_Script = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/vps_panel.js,argument=url={{{url}}}&key={{{key}}}&name={{{name}}}&icon={{{icon}}}
+VPS_Monitor_Script = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/vps_panel.js
 
 [Panel]
-VPS_Monitor_Script = script-name=VPS_Monitor_Script,update-interval={{{interval}}}
+VPS_Monitor_Script = script-name=VPS_Monitor_Script,update-interval=15
