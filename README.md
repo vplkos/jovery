@@ -39,18 +39,32 @@
 
 > ```yaml
 > version: '3.8'
-> 
+>
 > services:
 >   secure-monitor:
->     image: hk2fs/secure-monitor:v1.0
+>     image: hk2fs/secure-monitor:v2.0
 >     container_name: secure-monitor
 >     restart: always
->     network_mode: host       # 使用 host 模式，保证网卡流量和系统指标读取 100% 精确
+>
+>     # 使用宿主机网络，获取真实网络流量统计
+>     network_mode: host
+>
+>     # 容器根文件系统只读，提高安全性
+>     read_only: true
+>
+>     # 禁止进程获取额外权限
+>     security_opt:
+>       - no-new-privileges:true
+>
 >     environment:
 >       - API_KEY=你的超级安全暗号密钥  # 👈 记得改成你自己的高质量随机密钥
 >       - PORT=40728                  # 👈 容器监听的宿主机端口
+>
 >     volumes:
+>       # 挂载宿主机 proc，读取真实 CPU、内存、流量和运行时间
 >       - /proc:/host/proc:ro
+>
+>       # 挂载 sysfs（当前版本未使用，可保留）
 >       - /sys:/host/sys:ro
 > ```
 
