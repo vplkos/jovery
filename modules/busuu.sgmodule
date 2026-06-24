@@ -1,8 +1,10 @@
 #!name=Busuu解锁VIP
-#!desc=博树 VIP 解锁模块
+#!desc=博树 VIP 解锁模块 (带全量高级参数优化版)
 #!system=ios
-#！Busuu = type=http-response,pattern=^https?:\/\/.*\/users\/me,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js,binary-body-mode=0,script-update-interval=0
+
 [Script]
-Busuu = type=http-response,pattern=^https:\/\/api\.busuu\.com\/users\/me,requires-body=1,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js
+# 将参数直接挂在 Surge 规则后，确保大小限制解除且强制为文本模式
+Busuu = type=http-response,pattern=^https:\/\/api\.busuu\.com\/users\/me,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js
+
 [MITM]
 hostname = api.busuu.com, events.busuu.com
