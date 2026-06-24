@@ -7,25 +7,19 @@ hostname = api.busuu.com
 */
 
 if ($response && $response.body) {
-    try {
-        let body = $response.body;
+    let body = $response.body;
 
-        // 使用符合现代规范的全局替换（添加了 \s* 允许键值对之间有任意空格，兼容性拉满）
-        body = body
-            .replace(/"tier"\s*:\s*"\w+"/g, '"tier":"premium"')                     // 修改会员等级
-            .replace(/"is_premium"\s*:\s*\w+/g, '"is_premium":true')                // 激活会员状态
-            .replace(/"free_trial_eligible"\s*:\s*\w+/g, '"free_trial_eligible":false') // 关闭试用资格提示
-            .replace(/"free_trial"\s*:\s*\w+/g, '"free_trial":false')                // 关闭试用状态
-            .replace(/"expiration"\s*:\s*\d+/g, '"expiration":4092599349')          // 过期时间（约2099年）
-            .replace(/"next_charge"\s*:\s*\d+/g, '"next_charge":4092599349')        // 下次扣费时间
-            .replace(/"name"\s*:\s*".*?"/g, '"name":"Marius"');          // 你的专属彩蛋昵称
+    // 100% 还原原版老脚本的替换规则与目标值（无任何魔改，保持原版的大力出奇迹逻辑）
+    body = body
+        .replace(/"tier":"\w+"/g, '"tier":"premium"')
+        .replace(/"free_trial_eligible":\w+/g, '"free_trial_eligible":false')
+        .replace(/"is_premium":\w+/g, '"is_premium":true')
+        .replace(/"free_trial\":\w+/g, '"free_trial":false')
+        .replace(/"expiration":\d+/g, '"expiration":4092599349')
+        .replace(/"next_charge":\d+/g, '"next_charge":4092599349')
+        .replace(/"name":".*?"/g, '"name":"Premium"'); // 原版其实改成了 Premium，你想改彭于晏可以自己换掉
 
-        $done({ body: body });
-
-    } catch (error) {
-        console.log("Busuu 正则替换脚本执行失败: " + error);
-        $done({});
-    }
+    $done({ body: body });
 } else {
     $done({});
 }
