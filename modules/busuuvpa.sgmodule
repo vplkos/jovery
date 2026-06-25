@@ -3,12 +3,9 @@
 #!system=ios
 
 [Script]
-# 1. 拦截官方资产接口 (采用模糊匹配通杀 v2/v3 版本)
 busuu_profile = type=http-response,pattern=api\.busuu\.com\/.*users\/me,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuuvpa.js
 
-# 2. 拦截第三方 Amplitude 实验接口 (强开 AI 教练与全功能错题本)
 busuu_amplitude = type=http-response,pattern=api\.lab\.amplitude\.com\/sdk\/v2\/vardata,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuuvpa.js
 
 [MITM]
-# 必须同时追加这两个域名，Surge 才能执行解密
 hostname = %APPEND% api.busuu.com, api.lab.amplitude.com
