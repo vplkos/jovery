@@ -1,8 +1,9 @@
-#!name=Tandem去广告与Pro解锁(
-#!desc=消灭 Iterable 弹窗、抹除 Matcha 精选流广告，解锁本地 Pro 身份与无限翻译（GitHub 远程同步版）
+#!name=Tandem Pro解锁
+#!desc=本地化脚本运行，完美避开 GitHub Raw 网络与隐私仓库下发失败的问题
 #!system=ios
 
 [Script]
-Tandem_All = type=http-response,pattern=^https?:\/\/(.*\.tandem\.net|api\.iterable\.com)\/,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/tandem.js
+Tandem_Blast = type=http-response,pattern=^https?:\/\/(.*\.tandem\.net|api\.iterable\.com)\/,requires-body=1,max-size=0,binary-body-mode=0,script-path=tandem.js
+
 [MITM]
-hostname = *.tandem.net, api.iterable.com
+hostname = %APPEND% *.tandem.net, api.iterable.com
