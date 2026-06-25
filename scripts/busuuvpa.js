@@ -38,15 +38,15 @@ try {
             
             // 使用合法的标准层级名，确保 App 认账
             if (obj.data.access) {
-                obj.data.access.tier = "premium";
+                obj.data.access.tier = "premium_plus";
             }
             
             // 规范化注入年费订阅数据
             if (obj.data.premium_data) {
                 obj.data.premium_data.subscription_status = "active";
-                obj.data.premium_data.product = "premium";
-                obj.data.premium_data.type = "premium";
-                obj.data.premium_data.subscriptionType = "premium";
+                obj.data.premium_data.product = "premium_plus";
+                obj.data.premium_data.type = "premium_plus";
+                obj.data.premium_data.subscriptionType = "premium_plus";
                 obj.data.premium_data.expiration = 3745855150; // 2088年
                 obj.data.premium_data.next_charge = 3745855150;
             }
