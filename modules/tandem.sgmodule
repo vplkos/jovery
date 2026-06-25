@@ -1,0 +1,13 @@
+#!name=Tandem去广告与Pro解锁(
+#!desc=消灭 Iterable 弹窗、抹除 Matcha 精选流广告，解锁本地 Pro 身份与无限翻译（GitHub 远程同步版）
+#!system=ios
+
+[Script]
+Tandem_Pro = type=http-response,pattern=^https:\/\/api\.tandem\.net\/.*(users|profiles)\/me,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/tandem.js
+
+Tandem_Matcha = type=http-response,pattern=^https:\/\/api\.live\.matcha\.tandem\.net\/api\/v1\/community\/highlighted_profiles,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/tandem.js
+
+Tandem_Ads = type=http-response,pattern=^https:\/\/api\.iterable\.com\/api\/embedded-messaging\/messages,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://raw.githubusercontent.com/vplkos/jovery/main/scripts/tandem.js
+
+[MITM]
+hostname = %APPEND% *.tandem.net, api.iterable.com
