@@ -1,9 +1,0 @@
-#!name=Tandem Pro解锁
-#!desc=本地化脚本运行，完美避开 GitHub Raw 网络与隐私仓库下发失败的问题
-#!system=ios
-
-[Script]
-Tandem_Blast = type=http-response,pattern=^https?:\/\/(.*\.tandem\.net|api\.iterable\.com)\/,requires-body=1,max-size=0,binary-body-mode=0,script-path=tandem.js
-
-[MITM]
-hostname = %APPEND% *.tandem.net, api.iterable.com
