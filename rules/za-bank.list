@@ -1,10 +1,9 @@
 # NAME: ZA_Bank
 # AUTHOR: 乌龟的黑头
-# UPDATED: 2026-06-03 01:32:00
-# TOTAL: 6
+# UPDATED: 2026-10-29
+# TOTAL: 5
 
 # 众安银行直连
-PROCESS-NAME,ZA Bank
 DOMAIN-SUFFIX,za.group
 DOMAIN-SUFFIX,zajourney.com
 DOMAIN-SUFFIX,zafinsvc.com
