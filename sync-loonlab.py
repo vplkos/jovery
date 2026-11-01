@@ -17,6 +17,7 @@
 import hashlib
 import json
 import os
+from botocore.config import Config
 import re
 import subprocess
 import sys
@@ -77,6 +78,9 @@ def main():
         aws_access_key_id=os.environ["OCI_S3_ACCESS_KEY"],
         aws_secret_access_key=os.environ["OCI_S3_SECRET_KEY"],
         region_name="ap-osaka-1",
+        # OCI S3 不支持 AWS chunked encoding：关掉灵活校验和，
+        # 否则新版 botocore 发 STREAMING-AWS4-HMAC-SHA256-PAYLOAD 会被 OCI 以 NotImplemented 拒绝。
+        config=Config(signature_version="s3v4", request_checksum_calculation="when_required", response_checksum_validation="when_required"),
     )
     added = overwritten = 0
     for key, data, ctype in jobs:
