@@ -23,7 +23,7 @@
 | Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/rules/busuu.list | busuu.com、purchasely.io、amplitude.com，3 条 |
 | 众安银行（ZA Bank） | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list | 5 条，直连用 |
 | Homebrew | https://raw.githubusercontent.com/vplkos/jovery/main/rules/homebrew.list | brew.sh、formulae.brew.sh、ghcr.io、github.com 等 |
-| 189 降温（电信营业厅等流氓 SDK） | https://raw.githubusercontent.com/vplkos/jovery/main/rules/189_drop.list | jpush 等高频域名；**在 Surge 引入时策略必须手动选 REJECT-DROP** |
+| 189 降温 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/189_drop.list | jpush 等高频域名；**在 Surge 引入时策略必须手动选 REJECT-DROP** |
 
 ### 🛠 脚本（Scripts）
 
