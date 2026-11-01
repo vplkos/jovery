@@ -21,7 +21,7 @@
 | :--- | :--- | :--- |
 | Muse | https://raw.githubusercontent.com/vplkos/jovery/main/rules/muse.list | muse.ai、meta.ai、metaaivm.com、meta.com、metaaiusercontent.com，5 条 |
 | Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/rules/busuu.list | busuu.com、purchasely.io、amplitude.com，3 条 |
-| 众安银行（ZA Bank） | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list | 5 条，直连用 |
+| 众安银行 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list | 5 条，直连用 |
 | Homebrew | https://raw.githubusercontent.com/vplkos/jovery/main/rules/homebrew.list | brew.sh、formulae.brew.sh、ghcr.io、github.com 等 |
 | 189 降温 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/189_drop.list | jpush 等高频域名；**在 Surge 引入时策略必须手动选 REJECT-DROP** |
 
