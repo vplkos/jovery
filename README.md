@@ -31,3 +31,9 @@
 | :--- | :--- |
 | Busuu 脚本 | https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js |
 | VPS 面板解析脚本 | https://raw.githubusercontent.com/vplkos/jovery/main/scripts/vps_panel.js |
+
+## 📊 监控面板
+
+轻量级原生服务器指标监控，基于 Go + Docker + Surge Panel。
+
+详细说明见：[监控面板文档](monitoring.md)
