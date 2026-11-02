@@ -55,7 +55,7 @@
 
 ### 1. 服务端部署（VPS）
 
-在 Linux 服务器上新建目录（推荐 `/opt/1panel/apps/secure-monitor`），创建 `docker-compose.yml` 文件并写入以下配置：
+在 Linux 服务器上新建目录（推荐 `/opt/docker/secure-monitor`），创建 `docker-compose.yml` 文件并写入以下配置：
 
 ```yaml
 services:
