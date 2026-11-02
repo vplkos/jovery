@@ -36,4 +36,4 @@
 
 轻量级原生服务器指标监控，基于 Go + Docker + Surge Panel。
 
-详细说明见：[监控面板文档](monitoring.md)
+详细说明见：[监控面板文档](MONITORING.md)
