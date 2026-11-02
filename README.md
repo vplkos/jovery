@@ -38,8 +38,8 @@
 
 基于 **Go 后端 + Docker + Surge Panel** 的轻量级原生服务器指标监控方案。
 
-<p align="center">
-  <img src="./screenshots/vps-monitor.png" width="350">
+<p align="left">
+  <img src="./screenshots/vps-monitor.png" width="600">
 </p>
 
 ### ✨ 项目特点
@@ -131,7 +131,7 @@ https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodul
 
 - CPU 使用率
 - 内存使用率
-- 网络总流量（系统启动以来累计流量）
+- 网络总流量
 - 系统运行时间
 
 所有数据均直接读取 Linux 宿主机内核接口，不依赖 Docker API、SNMP 或第三方监控 Agent。
@@ -139,20 +139,11 @@ https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodul
 <details>
 <summary>🔬 实现原理</summary>
 
-### 数据来源
-
-- CPU：`/proc/stat`
-- 内存：`/proc/meminfo`
-- 网络流量：`/proc/net/dev`
-- 运行时间：`/proc/uptime`
-
-### 计算方式
-
-- CPU：基于 `/proc/stat` 差分采样计算
-- 内存：基于 `MemAvailable` 计算真实内存占用率
-- 网络流量：汇总所有非回环网卡流量
-- 运行时间：读取系统启动时间
-
-项目采用 Go 原生实现，无需数据库、无需 Docker Socket、无需额外 Agent。
+| 监控项目 | 数据来源 | 计算方式 |
+| --- | --- | --- |
+| CPU 使用率 | `/proc/stat` | 基于 `/proc/stat` 差分采样计算 |
+| 内存使用率 | `/proc/meminfo` | 基于 `MemAvailable` 计算真实内存占用率 |
+| 网络总流量 | `/proc/net/dev` | 汇总所有非回环网卡流量 |
+| 系统运行时间 | `/proc/uptime` | 读取系统启动时间 |
 
 </details>
