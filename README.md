@@ -15,16 +15,16 @@
 
 ### 🌐 规则（Rules）
 
-规则文件本身不带策略列，引用时在 Loon / Surge 里指定策略组；Loon 远程规则更新后需下拉刷新才生效，GitHub raw 缓存可能延迟几分钟。
+规则文件本身不带策略列，引用时在 Loon / Surge 里指定策略组；Loon 远程规则更新后需下拉刷新才生效，GitHub raw 缓存可能延迟几分钟。策略列为 Loon 引用时的常用策略，Homebrew 未在当前 Loon 配置中引用，策略未定。
 
-| 功能 | 资源链接 | 说明 |
-| :--- | :--- | :--- |
-| Muse | https://raw.githubusercontent.com/vplkos/jovery/main/rules/muse.list | muse.ai、meta.ai、metaaivm.com、meta.com、metaaiusercontent.com，5 条 |
-| Apple Intelligence | https://raw.githubusercontent.com/vplkos/jovery/main/rules/apple-intelligence.list | gateway.icloud.com、apple-relay.*、mask.icloud.com 等中继域名，14 条；走 SiriAI 策略组，须放在 Apple 规则之前 |
-| Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/rules/busuu.list | busuu.com、purchasely.io、amplitude.com，3 条 |
-| 众安银行 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list | 5 条，直连用 |
-| Homebrew | https://raw.githubusercontent.com/vplkos/jovery/main/rules/homebrew.list | brew.sh、formulae.brew.sh、ghcr.io、github.com 等 |
-| 189 降温 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/189_drop.list | jpush 等高频域名；**在 Surge 引入时策略必须手动选 REJECT-DROP** |
+| 规则集 | 链接 | 条数 | 策略 | 说明 |
+| :--- | :--- | :---: | :--- | :--- |
+| Muse | https://raw.githubusercontent.com/vplkos/jovery/main/rules/muse.list | 5 | Muse | muse.ai、meta.ai、metaaivm.com、meta.com、metaaiusercontent.com |
+| Apple Intelligence | https://raw.githubusercontent.com/vplkos/jovery/main/rules/apple-intelligence.list | 14 | SiriAI | gateway.icloud.com、apple-relay.*、mask.icloud.com 等中继域名；须放在 Apple 规则之前 |
+| Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/rules/busuu.list | 3 | DIRECT | busuu.com、purchasely.io、amplitude.com |
+| 众安银行 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list | 5 | DIRECT | 众安银行相关域名 |
+| Homebrew | https://raw.githubusercontent.com/vplkos/jovery/main/rules/homebrew.list | 7 | — | brew.sh、formulae.brew.sh、ghcr.io、github.com 等 |
+| 189 降温 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/189_drop.list | 3 | REJECT-DROP | jpush.cn、jpush.io、easytomessage.com 等高频域名；**在 Surge 引入时策略必须手动选 REJECT-DROP** |
 
 ### 🛠 脚本（Scripts）
 
