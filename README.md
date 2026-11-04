@@ -11,7 +11,7 @@
 | 功能 | 资源链接 |
 | :--- | :--- |
 | Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/modules/busuu.sgmodule |
-| VPS 监控面板 | https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodule |
+| VPS 监控面板 | https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps-monitor.sgmodule |
 
 ### 🌐 规则（Rules）
 
