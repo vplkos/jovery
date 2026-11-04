@@ -24,7 +24,6 @@
 | Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/rules/busuu.list | 3 | DIRECT | busuu.com、purchasely.io、amplitude.com |
 | 众安银行 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list | 5 | DIRECT | 众安银行相关域名 |
 | Homebrew | https://raw.githubusercontent.com/vplkos/jovery/main/rules/homebrew.list | 7 | — | brew.sh、formulae.brew.sh、ghcr.io、github.com 等 |
-| 189 降温 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/189_drop.list | 3 | REJECT-DROP | jpush.cn、jpush.io、easytomessage.com 等高频域名；**在 Surge 引入时策略必须手动选 REJECT-DROP** |
 
 ### 🛠 脚本（Scripts）
 
