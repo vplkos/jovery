@@ -73,7 +73,7 @@ openssl rand -hex 32
 4. 导入以下链接：
 
 ```text
-https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps_monitor.sgmodule
+https://raw.githubusercontent.com/vplkos/jovery/main/modules/vps-monitor.sgmodule
 ```
 
 5. 安装完成后，点击模块右侧 **···**
