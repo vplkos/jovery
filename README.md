@@ -20,6 +20,7 @@
 | 功能 | 资源链接 | 说明 |
 | :--- | :--- | :--- |
 | Muse | https://raw.githubusercontent.com/vplkos/jovery/main/rules/muse.list | muse.ai、meta.ai、metaaivm.com、meta.com、metaaiusercontent.com，5 条 |
+| Apple Intelligence | https://raw.githubusercontent.com/vplkos/jovery/main/rules/apple-intelligence.list | gateway.icloud.com、apple-relay.*、mask.icloud.com 等中继域名，14 条；走 SiriAI 策略组，须放在 Apple 规则之前 |
 | Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/rules/busuu.list | busuu.com、purchasely.io、amplitude.com，3 条 |
 | 众安银行 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list | 5 条，直连用 |
 | Homebrew | https://raw.githubusercontent.com/vplkos/jovery/main/rules/homebrew.list | brew.sh、formulae.brew.sh、ghcr.io、github.com 等 |
