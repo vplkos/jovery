@@ -1,0 +1,21 @@
+# NAME: Apple Intelligence
+# AUTHOR: vplkos
+# DESCRIPTION: Apple Intelligence / Siri 转 ChatGPT 中继域名，走 SiriAI 策略组，须在 Apple DIRECT 规则之前命中；blackmatrix7 Siri.list 只有 guzzoni.apple.com 一条，不含中继域名，故自建
+# UPDATED: 2026-11-04
+# DOMAIN: 2
+# DOMAIN-SUFFIX: 12
+# TOTAL: 14
+DOMAIN-SUFFIX,gateway.icloud.com
+DOMAIN-SUFFIX,apple-relay.apple.com
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com
+DOMAIN-SUFFIX,apple-relay.cloudflare.com
+DOMAIN-SUFFIX,apple-relay.akamaized.net
+DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
+DOMAIN-SUFFIX,mask.icloud.com
+DOMAIN-SUFFIX,mask-api.icloud.com
+DOMAIN-SUFFIX,mask-h2.icloud.com
+DOMAIN-SUFFIX,smoot.apple.com
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
+DOMAIN-SUFFIX,ls.apple.com
+DOMAIN,api-siri-prod.apple.com
+DOMAIN,guzzoni.apple.com
