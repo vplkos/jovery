@@ -30,7 +30,7 @@
 | 功能 | 资源链接 |
 | :--- | :--- |
 | Busuu 脚本 | https://raw.githubusercontent.com/vplkos/jovery/main/scripts/busuu.js |
-| VPS 面板解析脚本 | https://raw.githubusercontent.com/vplkos/jovery/main/scripts/vps_panel.js |
+| VPS 面板解析脚本 | https://raw.githubusercontent.com/vplkos/jovery/main/scripts/vps-panel.js |
 
 ## 📊 监控面板
 
