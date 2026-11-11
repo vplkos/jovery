@@ -13,9 +13,21 @@ var ICON = arg("ICON", "server.rack");
 var ICON_COLOR = arg("ICON_COLOR", "#58A6FF");
 var TOKEN = arg("TOKEN", "");
 
+// 地址和端口合在一起填，格式 IP:端口，例如 152.70.85.214:9100
+function parseAddr(s, defHost, defPort) {
+  var parts = String(s || "").split(":");
+  var host = (parts[0] || "").trim() || defHost;
+  var port = parseInt(parts[1], 10);
+  if (!port || port < 1 || port > 65535) port = defPort;
+  return { host: host, port: port };
+}
+
+var n1 = parseAddr(arg("NODE1", "152.70.85.214:9100"), "152.70.85.214", 9100);
+var n2 = parseAddr(arg("NODE2", "161.33.41.236:9100"), "161.33.41.236", 9100);
+
 var NODES = [
-  { name: arg("NODE1_NAME", "Oracle-01"), host: arg("NODE1_HOST", "152.70.85.214"), port: parseInt(arg("NODE1_PORT", "9100"), 10) || 9100 },
-  { name: arg("NODE2_NAME", "Oracle-02"), host: arg("NODE2_HOST", "161.33.41.236"), port: parseInt(arg("NODE2_PORT", "9100"), 10) || 9100 }
+  { name: arg("NODE1_NAME", "Oracle-01"), host: n1.host, port: n1.port },
+  { name: arg("NODE2_NAME", "Oracle-02"), host: n2.host, port: n2.port }
 ];
 
 function fmtRate(bps) {
