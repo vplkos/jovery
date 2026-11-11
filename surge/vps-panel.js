@@ -84,14 +84,14 @@ fetchNode(NODES[0], function (m1) {
         lines.push(node.name + " 离线");
         return;
       }
-      lines.push(node.name + " CPU " + m.cpu_percent + "% | 内存 " + m.mem_percent + "% | 磁盘 " + m.disk_percent + "% | 时间 " + fmtTime(m.timestamp));
+      lines.push(node.name + " CPU " + m.cpu_percent + "% | 内存 " + m.mem_percent + "% | 磁盘 " + m.disk_percent + "%");
       lines.push("↓ " + fmtRate(m.net_rx_bps) + " ↑ " + fmtRate(m.net_tx_bps) + " | 累计 ↓ " + fmtBytes(m.net_rx_bytes) + " ↑ " + fmtBytes(m.net_tx_bytes) + " | 运行 " + fmtUptime(m.uptime_seconds));
     });
     // 注意：$done 里传了 style 就不能自定义图标，所以这里不传 style，
     // 改传 icon + icon-color（官网手册 More Customization 一节）。
     // 有节点离线时图标变红提示。
     $done({
-      title: TITLE,
+      title: TITLE + " | 时间 " + fmtTime(Math.floor(Date.now() / 1000)),
       content: lines.join("\n"),
       icon: ICON,
       "icon-color": allOk ? ICON_COLOR : "#FF453A"
