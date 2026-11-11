@@ -1,0 +1,11 @@
+#!name=VPS 监控
+#!desc=监控两台 Oracle 小鸡 (CPU/内存/磁盘/上下行/负载/运行时间)
+#!author=Brio
+#!icon=server.rack
+#!arguments=TOKEN:监控 Token (与 vps-agent 的 VPS_MONITOR_TOKEN 一致)
+
+[Panel]
+VPS-Status = title="小鸡监控", content="正在加载…", icon="server.rack", icon-color="#58A6FF", script-name=vps-panel, update-interval=30
+
+[Script]
+vps-panel = type=generic, script-path=https://raw.githubusercontent.com/vplkos/jovery/main/surge/vps-panel.js, timeout=10
