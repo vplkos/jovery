@@ -2,7 +2,7 @@
 #!desc=监控两台服务器 (CPU/内存/磁盘/上下行/累计流量/运行时间)，地址与 Token 均可自定义
 #!author=Brio
 #!icon=server.rack
-#!arguments=TITLE:面板标题,NODE1_NAME:节点1名称,NODE1_HOST:节点1地址,NODE1_PORT:节点1端口,NODE2_NAME:节点2名称,NODE2_HOST:节点2地址,NODE2_PORT:节点2端口,TOKEN:监控 Token (与 vps-agent 的 VPS_MONITOR_TOKEN 一致)
+#!arguments=TITLE:面板标题,ICON:图标 (SF Symbol 名),ICON_COLOR:图标颜色 (HEX),NODE1_NAME:节点1名称,NODE1_HOST:节点1地址,NODE1_PORT:节点1端口,NODE2_NAME:节点2名称,NODE2_HOST:节点2地址,NODE2_PORT:节点2端口,TOKEN:监控 Token (与 vps-agent 的 VPS_MONITOR_TOKEN 一致)
 
 [Panel]
 VPS-Status = title="小鸡监控", content="正在加载…", icon="server.rack", icon-color="#58A6FF", script-name=vps-panel, update-interval=30

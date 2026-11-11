@@ -9,6 +9,8 @@ function arg(key, def) {
 }
 
 var TITLE = arg("TITLE", "小鸡监控");
+var ICON = arg("ICON", "server.rack");
+var ICON_COLOR = arg("ICON_COLOR", "#58A6FF");
 var TOKEN = arg("TOKEN", "");
 
 var NODES = [
@@ -66,10 +68,14 @@ fetchNode(NODES[0], function (m1) {
       lines.push(node.name + " CPU " + m.cpu_percent + "% | 内存 " + m.mem_percent + "% | 磁盘 " + m.disk_percent + "%");
       lines.push("↓ " + fmtRate(m.net_rx_bps) + " ↑ " + fmtRate(m.net_tx_bps) + " | 累计 ↓ " + fmtBytes(m.net_rx_bytes) + " ↑ " + fmtBytes(m.net_tx_bytes) + " | 运行 " + fmtUptime(m.uptime_seconds));
     });
+    // 注意：$done 里传了 style 就不能自定义图标，所以这里不传 style，
+    // 改传 icon + icon-color（官网手册 More Customization 一节）。
+    // 有节点离线时图标变红提示。
     $done({
       title: TITLE,
       content: lines.join("\n"),
-      style: allOk ? "good" : "error"
+      icon: ICON,
+      "icon-color": allOk ? ICON_COLOR : "#FF453A"
     });
   });
 });
