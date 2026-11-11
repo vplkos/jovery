@@ -43,6 +43,13 @@ function fmtBytes(n) {
   return n + " B";
 }
 
+function fmtTime(ts) {
+  var d = new Date(ts * 1000);
+  var h = d.getHours();
+  var m = d.getMinutes();
+  return (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m);
+}
+
 function fmtUptime(sec) {
   var d = Math.floor(sec / 86400);
   var h = Math.floor((sec % 86400) / 3600);
@@ -77,7 +84,7 @@ fetchNode(NODES[0], function (m1) {
         lines.push(node.name + " 离线");
         return;
       }
-      lines.push(node.name + " CPU " + m.cpu_percent + "% | 内存 " + m.mem_percent + "% | 磁盘 " + m.disk_percent + "%");
+      lines.push(node.name + " CPU " + m.cpu_percent + "% | 内存 " + m.mem_percent + "% | 磁盘 " + m.disk_percent + "% | 时间 " + fmtTime(m.timestamp));
       lines.push("↓ " + fmtRate(m.net_rx_bps) + " ↑ " + fmtRate(m.net_tx_bps) + " | 累计 ↓ " + fmtBytes(m.net_rx_bytes) + " ↑ " + fmtBytes(m.net_tx_bytes) + " | 运行 " + fmtUptime(m.uptime_seconds));
     });
     // 注意：$done 里传了 style 就不能自定义图标，所以这里不传 style，
