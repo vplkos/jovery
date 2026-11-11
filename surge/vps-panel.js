@@ -86,7 +86,7 @@ fetchNode(NODES[0], function (m1) {
         return;
       }
       lines.push(node.name + " ｜ CPU " + m.cpu_percent + "% | 内存 " + m.mem_percent + "%");
-      lines.push("流量： ↑ " + fmtBytes(m.net_tx_bytes) + " ↓ " + fmtBytes(m.net_rx_bytes) + " | 磁盘 " + m.disk_percent + "%");
+      lines.push("流量： ↑ " + fmtBytes(m.net_tx_bytes) + " ↓ " + fmtBytes(m.net_rx_bytes));
       lines.push("在线：" + fmtUptime(m.uptime_seconds));
     });
     // 注意：$done 里传了 style 就不能自定义图标，所以这里不传 style，
