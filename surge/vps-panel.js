@@ -16,6 +16,13 @@ function fmtRate(bps) {
   return bps + " B/s";
 }
 
+function fmtBytes(n) {
+  if (n >= 1073741824) return (n / 1073741824).toFixed(1) + " GB";
+  if (n >= 1048576) return (n / 1048576).toFixed(1) + " MB";
+  if (n >= 1024) return (n / 1024).toFixed(1) + " KB";
+  return n + " B";
+}
+
 function fmtUptime(sec) {
   var d = Math.floor(sec / 86400);
   var h = Math.floor((sec % 86400) / 3600);
@@ -51,7 +58,7 @@ fetchNode(NODES[0], function (m1) {
         return;
       }
       lines.push(node.name + " CPU " + m.cpu_percent + "% | 内存 " + m.mem_percent + "% | 磁盘 " + m.disk_percent + "%");
-      lines.push("↓ " + fmtRate(m.net_rx_bps) + " ↑ " + fmtRate(m.net_tx_bps) + " | 负载 " + m.load1.toFixed(2) + " | 运行 " + fmtUptime(m.uptime_seconds));
+      lines.push("↓ " + fmtRate(m.net_rx_bps) + " ↑ " + fmtRate(m.net_tx_bps) + " | 累计 ↓ " + fmtBytes(m.net_rx_bytes) + " ↑ " + fmtBytes(m.net_tx_bytes) + " | 运行 " + fmtUptime(m.uptime_seconds));
     });
     $done({
       title: "小鸡监控",
