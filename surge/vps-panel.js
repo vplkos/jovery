@@ -1,14 +1,20 @@
 // VPS Monitor Panel — Surge panel script
-// 拉两台 Oracle 小鸡的 /metrics (vps-agent, :9100)，显示 CPU/内存/磁盘/上下行/负载/运行时间。
-// Token 不写在脚本里，走模块参数 $argument.TOKEN (与 vps-agent 的 VPS_MONITOR_TOKEN 一致)。
+// 拉两台服务器的 /metrics (vps-agent, :9100)，显示 CPU/内存/磁盘/上下行/累计流量/运行时间。
+// 全部走模块参数 $argument：标题、节点名、地址、端口、Token 都能在模块设置里改，任何人填自己的服务器就能用。
 // Surge $httpClient 只支持回调，不支持 await，所以两台顺序拉。
 
-var NODES = [
-  { name: "Oracle-01", host: "152.70.85.214", port: 9100 },
-  { name: "Oracle-02", host: "161.33.41.236", port: 9100 }
-];
+function arg(key, def) {
+  var v = ($argument && $argument[key]) ? String($argument[key]).trim() : "";
+  return v ? v : def;
+}
 
-var TOKEN = ($argument && $argument.TOKEN) ? $argument.TOKEN : "";
+var TITLE = arg("TITLE", "小鸡监控");
+var TOKEN = arg("TOKEN", "");
+
+var NODES = [
+  { name: arg("NODE1_NAME", "Oracle-01"), host: arg("NODE1_HOST", "152.70.85.214"), port: parseInt(arg("NODE1_PORT", "9100"), 10) || 9100 },
+  { name: arg("NODE2_NAME", "Oracle-02"), host: arg("NODE2_HOST", "161.33.41.236"), port: parseInt(arg("NODE2_PORT", "9100"), 10) || 9100 }
+];
 
 function fmtRate(bps) {
   if (bps >= 1048576) return (bps / 1048576).toFixed(1) + " MB/s";
@@ -61,7 +67,7 @@ fetchNode(NODES[0], function (m1) {
       lines.push("↓ " + fmtRate(m.net_rx_bps) + " ↑ " + fmtRate(m.net_tx_bps) + " | 累计 ↓ " + fmtBytes(m.net_rx_bytes) + " ↑ " + fmtBytes(m.net_tx_bytes) + " | 运行 " + fmtUptime(m.uptime_seconds));
     });
     $done({
-      title: "小鸡监控",
+      title: TITLE,
       content: lines.join("\n"),
       style: allOk ? "good" : "error"
     });
