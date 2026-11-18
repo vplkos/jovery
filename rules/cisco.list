@@ -1,0 +1,9 @@
+# NAME: Cisco
+# UPDATED: 2026-11-19
+
+# NetAcad / Cisco官网 / S3下载
+DOMAIN-SUFFIX,netacad.com
+DOMAIN-SUFFIX,cisco.com
+DOMAIN-SUFFIX,cisco.net
+DOMAIN-SUFFIX,webex.com
+DOMAIN-SUFFIX,prod-tf-ui.s3.amazonaws.com
