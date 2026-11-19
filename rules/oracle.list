@@ -1,0 +1,8 @@
+# NAME: Oracle
+# UPDATED: 2026-11-19
+
+# 甲骨文云控制台 / OCI API / APEX / 对象存储专用端点
+DOMAIN-SUFFIX,oracle.com
+DOMAIN-SUFFIX,oraclecloud.com
+DOMAIN-SUFFIX,oraclecloudapps.com
+DOMAIN-SUFFIX,customer-oci.com
