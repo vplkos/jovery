@@ -5,11 +5,13 @@ DOMAIN-SUFFIX,claudeusercontent.com
 DOMAIN-SUFFIX,claude.app
 DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,hcaptcha.com
 DOMAIN-SUFFIX,api-iam.intercom.io
 DOMAIN-SUFFIX,nexus-websocket-a.intercom.io
-DOMAIN-SUFFIX,us5.datadoghq.com
+DOMAIN-KEYWORD,datadoghq
 DOMAIN-SUFFIX,r.stripe.com
-DOMAIN-SUFFIX,us.sentry.io
+DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,siftscience.com
 DOMAIN-SUFFIX,fcmtoken.googleapis.com
+DOMAIN-SUFFIX,storage.googleapis.com
 IP-CIDR,34.8.0.0/16,no-resolve
