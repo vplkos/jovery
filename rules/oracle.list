@@ -1,5 +1,5 @@
 # NAME: Oracle
-# UPDATED: 2026-11-20
+# UPDATED: 2026-11-21
 
 # 甲骨文云控制台 / OCI API / APEX / 对象存储专用端点
 DOMAIN-SUFFIX,oracle.com
@@ -13,3 +13,8 @@ DOMAIN-SUFFIX,oracleinfinity.io
 DOMAIN-SUFFIX,eloqua.com
 DOMAIN-SUFFIX,en25.com
 DOMAIN-SUFFIX,bluekai.com
+
+# 控制台页面加载的第三方：TrustArc Cookie 同意横幅 + Akamai mPulse 性能监控
+DOMAIN-SUFFIX,consent.trustarc.com
+DOMAIN-SUFFIX,go-mpulse.net
+DOMAIN-SUFFIX,akstat.io
