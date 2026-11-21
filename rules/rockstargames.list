@@ -1,0 +1,8 @@
+# NAME: Rockstar Games
+# UPDATED: 2026-11-21
+
+# R 星官网 / 下载 / 媒体 CDN（原 blackmatrix7 Game.list 内 4 条，独立成集）
+DOMAIN-SUFFIX,gamedownloads-rockstargames-com.akamaized.net
+DOMAIN-SUFFIX,media-rockstargames-com.akamaized.net
+DOMAIN-SUFFIX,rockstargames.com
+DOMAIN-SUFFIX,videos-rockstargames-com.akamaized.net
