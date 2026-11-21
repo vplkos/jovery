@@ -24,6 +24,14 @@
 | Busuu | https://raw.githubusercontent.com/vplkos/jovery/main/rules/busuu.list | 3 | DIRECT | busuu.com、purchasely.io、amplitude.com |
 | 众安银行 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/za-bank.list | 5 | DIRECT | 众安银行相关域名 |
 | Homebrew | https://raw.githubusercontent.com/vplkos/jovery/main/rules/homebrew.list | 7 | — | brew.sh、formulae.brew.sh、ghcr.io、github.com 等 |
+| B站PCDN | https://raw.githubusercontent.com/vplkos/jovery/main/rules/bilibili-pcdn.list | 8 | REJECT | B 站 PCDN 节点域名（mcdn.bilivideo.*、szbdyd.com 等） |
+| ChatGPT | https://raw.githubusercontent.com/vplkos/jovery/main/rules/chatgpt.list | 10 | ChatGPT | chatgpt.com、openai.com、oaiusercontent.com、auth0.com 等 |
+| 思科 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/cisco.list | 5 | — | NetAcad、cisco.com、webex.com、S3 下载端点 |
+| Claude | https://raw.githubusercontent.com/vplkos/jovery/main/rules/claude.list | 17 | 自建节点 | claude.ai、anthropic.com、claude.com 等，含 Intercom、hCaptcha 相关域名 |
+| Gemini | https://raw.githubusercontent.com/vplkos/jovery/main/rules/gemini.list | 9 | Gemini | gemini.google.com、aistudio.google.com、generativelanguage.googleapis.com 等 |
+| 八达通 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/octopus.list | 9 | 香港节点 | octopus.com.hk、octopus-cards.com 等，含 Adobe 统计与 Queue-it 排队域名 |
+| 甲骨文 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/oracle.list | 12 | DIRECT | oracle.com、oraclecloud.com、customer-oci.com 等，含 TrustArc、mPulse 第三方域名 |
+| R星 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/rockstargames.list | 4 | DIRECT | rockstargames.com、R 星下载与媒体 CDN（Akamai） |
 
 ### 🛠 脚本（Scripts）
 
