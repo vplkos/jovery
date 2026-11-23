@@ -32,6 +32,7 @@
 | 八达通 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/octopus.list | 9 | 香港节点 | octopus.com.hk、octopus-cards.com 等，含 Adobe 统计与 Queue-it 排队域名 |
 | 甲骨文 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/oracle.list | 12 | DIRECT | oracle.com、oraclecloud.com、customer-oci.com 等，含 TrustArc、mPulse 第三方域名 |
 | R星 | https://raw.githubusercontent.com/vplkos/jovery/main/rules/rockstargames.list | 4 | DIRECT | rockstargames.com、R 星下载与媒体 CDN（Akamai） |
+| Copilot | https://raw.githubusercontent.com/vplkos/jovery/main/rules/copilot.list | 8 | 日本节点 | copilot.microsoft.com、copilot.cloud.microsoft、sydney.bing.com 等；须放在 Microsoft 规则之前 |
 
 ### 🛠 脚本（Scripts）
 
